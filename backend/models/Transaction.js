@@ -18,6 +18,7 @@ const TransactionSchema = new mongoose.Schema(
     transactionDate: {
       type: Date,
       required: [true, "Please provide a date for the transaction occurrence"],
+      default: Date.now(),
     },
   },
   { timestamps: true },
