@@ -14,6 +14,7 @@ const TransactionSchema = new mongoose.Schema(
     amount: {
       type: Number,
       required: [true, "Please provide an amount for the transaction"],
+      min: [0.01, "Transactions cannot be less than $0.01"],
     },
     transactionDate: {
       type: Date,
