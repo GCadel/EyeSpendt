@@ -21,6 +21,11 @@ const TransactionSchema = new mongoose.Schema(
       required: [true, "Please provide a date for the transaction occurrence"],
       default: Date.now(),
     },
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+      required: [true, "User Required"],
+    },
   },
   { timestamps: true },
 );
