@@ -61,7 +61,9 @@ UserSchema.methods.getFullName = function () {
 UserSchema.methods.createJWT = function () {
   return jwt.sign(
     {
-      userId: this._id,
+      id: this._id,
+      monthlyBudget: this.monthlyBudget,
+      name: this.getFullName(),
     },
     process.env.JWT_SECRET,
     { expiresIn: process.env.EXPIRES_IN },
