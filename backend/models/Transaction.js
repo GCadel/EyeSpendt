@@ -14,10 +14,17 @@ const TransactionSchema = new mongoose.Schema(
     amount: {
       type: Number,
       required: [true, "Please provide an amount for the transaction"],
+      min: [0.01, "Transactions cannot be less than $0.01"],
     },
     transactionDate: {
       type: Date,
       required: [true, "Please provide a date for the transaction occurrence"],
+      default: Date.now(),
+    },
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+      required: [true, "User Required"],
     },
   },
   { timestamps: true },
