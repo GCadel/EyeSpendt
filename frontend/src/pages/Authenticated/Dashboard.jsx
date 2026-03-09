@@ -5,6 +5,7 @@ import {
   getTransactionData,
 } from "../../functions/transactionData";
 import { TransactionItem } from "../../components/TransactionItem";
+import { Link } from "react-router";
 
 export const Dashboard = () => {
   const { user, token } = useContext(AuthContext);
@@ -46,6 +47,7 @@ export const Dashboard = () => {
     <div>
       <h2>Dashboard</h2>
       <p>Welcome back, {user.name}</p>
+      <Link to={"/createTransaction"}>➕ New Transaction</Link>
       {transactions.length > 0 ? (
         <ul>
           {transactions.map((transaction) => (
