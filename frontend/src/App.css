@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.requiredField::after {
+  content: "*";
+  color: red;
+}
