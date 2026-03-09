@@ -10,6 +10,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   if (err.code && err.code === 11000) {
     customError.msg = "Email already in use";
     customError.statusCode = StatusCodes.BAD_REQUEST;
+    customError.field = "email";
   }
 
   // Validation errors
