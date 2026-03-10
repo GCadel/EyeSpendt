@@ -44,17 +44,17 @@ The user interface is the front end for full stack applications, or the EJS
 views for server side rendered applications. In either case, the UI should have
 these capabilities:
 
-- [ ] Registration, logon, and logoff are supported.
-- [ ] All CRUD operations for each of the data models besided the User model are
+- [x] Registration, logon, and logoff are supported.
+- [x] All CRUD operations for each of the data models besided the User model are
       supported.
-- [ ] Links or buttons should be provided to help the users navigate the
+- [x] Links or buttons should be provided to help the users navigate the
       application.
 - [ ] Style your application. Again, this is not the focus, so keep it simple
       until you have done everything else.
 
 ### Deployment
 
-- [ ] Include security protections for your application. Include security
+- [x] Include security protections for your application. Include security
       packages like xss-clean and helmet, appropriately configured.
 - [ ] Deploy the application to Render.com.
 

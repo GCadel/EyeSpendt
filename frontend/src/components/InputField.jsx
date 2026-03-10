@@ -6,7 +6,7 @@ export const InputField = ({
   fieldLabel,
   required = false,
 }) => {
-  const fieldTypes = ["text", "email", "password"];
+  const fieldTypes = ["text", "email", "password", "date"];
   return (
     <div>
       <label
@@ -25,6 +25,7 @@ export const InputField = ({
         required={required}
         name={fieldName}
         id={fieldName}
+        max={fieldType == "date" ? fieldValue : "none"}
         autoComplete={fieldType == "email" ? "email" : "off"}
       />
     </div>

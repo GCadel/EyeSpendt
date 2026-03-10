@@ -13,7 +13,7 @@ export const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [toBeDeleted, setToBeDeleted] = useState(null);
 
-  const url = "http://localhost:3001/api/transactions";
+  const url = import.meta.env.VITE_TRANSACTION;
 
   useEffect(() => {
     if (loading) {
@@ -42,6 +42,14 @@ export const Dashboard = () => {
       removeTransaction();
     }
   }, [toBeDeleted]);
+
+  if (loading) {
+    return (
+      <div>
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
 
   return (
     <div>

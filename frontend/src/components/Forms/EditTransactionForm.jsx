@@ -2,42 +2,35 @@ import { useContext, useEffect, useState } from "react";
 import { FormErrorDisplay } from "../FormErrorDisplay";
 import { InputField } from "../InputField";
 import { AuthContext } from "../../AuthContext";
-import { createTransaction } from "../../functions/transactionData";
+import { updateTransaction } from "../../functions/transactionData";
 import { useNavigate } from "react-router";
 
-export const TransactionForm = () => {
+export const EditTransactionForm = ({ data, url }) => {
   const [submitErrors, setSubmitErrors] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token } = useContext(AuthContext);
 
-  // Used to create a compatible date for form input
-  const { day, month, year } = Temporal.Now.plainDateTimeISO();
-  const createTimeString = (day, month, year) => {
-    return `${year}-${Number(month) < 10 ? `0${month}` : month}-${Number(day) < 10 ? `0${day}` : day}`;
-  };
-
   const [fields, setFields] = useState({
-    description: "",
-    amount: 0,
-    category: "wants",
-    transactionDate: createTimeString(day, month, year),
+    ...data,
+    transactionDate: String(data.transactionDate).split("T")[0],
   });
   const navigate = useNavigate();
-
-  const url = import.meta.env.VITE_TRANSACTION;
 
   useEffect(() => {
     if (loading) {
       const sendData = async () => {
-        const { errors } = await createTransaction(url, token, fields);
+        const { errors } = await updateTransaction(url, token, fields);
+
         if (errors) {
           setSubmitErrors(errors);
         } else {
           setSubmitErrors([]);
+
           navigate("/dashboard");
         }
         setLoading(false);
       };
+
       sendData();
     }
   }, [loading]);
@@ -100,7 +93,7 @@ export const TransactionForm = () => {
         </select>
       </div>
 
-      <button disabled={loading}>Create Transaction</button>
+      <button disabled={loading}>Update Transaction</button>
     </form>
   );
 };
