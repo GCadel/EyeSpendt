@@ -35,20 +35,33 @@ export const EditTransaction = () => {
   }
   if (data) {
     return (
-      <div>
-        <h2>Editing Transaction</h2>
+      <div className='w-full max-w-md p-8 rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-2xl'>
+        <div className='text-center mb-8'>
+          <h1 className='text-3xl font-bold text-white mb-2'>
+            Editing Transaction
+          </h1>
+          <p className='text-slate-400'>Transaction ID: {transactionID}</p>
+        </div>
         <EditTransactionForm
           data={data}
           url={url}
         />
-        <Link to={"/dashboard"}>Cancel</Link>
       </div>
     );
   }
   return (
-    <div>
-      <h2>Transaction not found</h2>
-      <Link to={"/dashboard"}>Back to dashboard</Link>
+    <div className='w-full max-w-md p-8 rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-2xl'>
+      <div className='text-center'>
+        <h1 className='text-3xl font-bold text-white mb-8'>
+          Transaction not found
+        </h1>
+        <Link
+          to={"/dashboard"}
+          className='w-full sm:w-1/3  text-center text-slate-400 hover:text-white bg-slate-800/30 hover:bg-slate-800/60 border border-slate-700 rounded-lg transition-all font-medium text-sm px-4 py-2'
+        >
+          Back to dashboard
+        </Link>
+      </div>
     </div>
   );
 };

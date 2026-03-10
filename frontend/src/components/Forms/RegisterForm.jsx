@@ -55,7 +55,7 @@ export const RegisterForm = () => {
       <InputField
         fieldName={"firstname"}
         fieldType={"text"}
-        fieldLabel={"First name"}
+        fieldLabel={"First Name"}
         fieldValue={fields.firstname}
         required
         onChange={(e) => handleFormUpdate({ firstname: e.target.value })}
@@ -63,7 +63,7 @@ export const RegisterForm = () => {
       <InputField
         fieldName={"lastname"}
         fieldType={"text"}
-        fieldLabel={"Last name"}
+        fieldLabel={"Last Name"}
         fieldValue={fields.lastname}
         onChange={(e) => handleFormUpdate({ lastname: e.target.value })}
       />
@@ -91,7 +91,12 @@ export const RegisterForm = () => {
         required
         onChange={(e) => handleFormUpdate({ confPassword: e.target.value })}
       />
-      <button disabled={loading}>Create Account</button>
+      <button
+        disabled={loading}
+        className='w-full mt-4 py-3 bg-emerald-500 hover:bg-emerald-400 disabled:bg-slate-700 disabled:cursor-not-allowed text-slate-950 font-bold rounded-lg transition-all transform active:scale-[0.98] shadow-lg shadow-emerald-500/20'
+      >
+        Create Account
+      </button>
     </form>
   );
 };
