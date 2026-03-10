@@ -7,6 +7,12 @@ export const InputField = ({
   required = false,
 }) => {
   const fieldTypes = ["text", "email", "password", "date"];
+  const { day, month, year } = Temporal.Now.plainDateISO();
+  const formatDateNum = (aDateNum) =>
+    aDateNum < 10 ? `0${aDateNum}` : aDateNum;
+
+  const dateStr = `${year}-${formatDateNum(month)}-${formatDateNum(day)}`;
+  console.log(dateStr);
   return (
     <div className='flex flex-col gap-1.5 mb-4'>
       <label
@@ -25,7 +31,7 @@ export const InputField = ({
         required={required}
         name={fieldName}
         id={fieldName}
-        max={fieldType == "date" ? fieldValue : "none"}
+        max={fieldType == "date" ? dateStr : "none"}
         autoComplete={fieldType == "email" ? "email" : "off"}
         className='w-full px-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 transition-all outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500'
       />
