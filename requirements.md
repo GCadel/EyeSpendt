@@ -1,6 +1,6 @@
 ## Requirements for the Project (Rubric)
 
-- [ ] Create a Node/Express application from scratch using the MongoDB database.
+- [x] Create a Node/Express application from scratch using the MongoDB database.
       It must contain the following elements:
 
 ### Models & Controllers
@@ -49,14 +49,14 @@ these capabilities:
       supported.
 - [x] Links or buttons should be provided to help the users navigate the
       application.
-- [ ] Style your application. Again, this is not the focus, so keep it simple
+- [x] Style your application. Again, this is not the focus, so keep it simple
       until you have done everything else.
 
 ### Deployment
 
 - [x] Include security protections for your application. Include security
       packages like xss-clean and helmet, appropriately configured.
-- [ ] Deploy the application to Render.com.
+- [x] Deploy the application to Render.com.
 
 ### Bonus Items (these are entirely optional)
 
