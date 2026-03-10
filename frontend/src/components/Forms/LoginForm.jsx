@@ -59,7 +59,12 @@ export const LoginForm = () => {
         required
         onChange={(e) => setFields({ ...fields, password: e.target.value })}
       />
-      <button disabled={loading}>Login</button>
+      <button
+        disabled={loading}
+        className='w-full mt-4 py-3 bg-emerald-500 hover:bg-emerald-400 disabled:bg-slate-700 disabled:cursor-not-allowed text-slate-950 font-bold rounded-lg transition-all transform active:scale-[0.98] shadow-lg shadow-emerald-500/20'
+      >
+        Login
+      </button>
     </form>
   );
 };

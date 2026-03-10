@@ -1,0 +1,8 @@
+button {
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6) sepia(0.1) saturate(1) hue-rotate(200deg) brightness(0.9);
+  cursor: pointer;
+}
