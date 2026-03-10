@@ -5,7 +5,7 @@ const { StatusCodes } = require("http-status-codes");
 const getTransactions = async (req, res) => {
   const transactions = await Transaction.find({
     createdBy: req.user.id,
-  }).sort("transactionDate");
+  }).sort("-transactionDate");
   return res.status(StatusCodes.OK).json({ transactions });
 };
 
