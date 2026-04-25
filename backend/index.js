@@ -5,6 +5,7 @@ const connectDB = require("./database/connect");
 const TransactionRouter = require("./routes/Transaction.router");
 const AuthRouter = require("./routes/auth.router");
 const AuthMiddleware = require("./middleware/authentication");
+const http = require("http")
 
 const app = express();
 
@@ -38,6 +39,13 @@ const start = async () => {
     // Listen for connection
     app.listen(port, () => {
       console.log(`App listening on port ${port}`);
+      setInterval(() => {
+        http
+          .request(`http://localhost:${port}/`, (res) => {
+            console.log("Server available");
+          })
+          .end();
+      }, 600000);
     });
   } catch (error) {
     console.log("Error connecting to DB:", error.message);
