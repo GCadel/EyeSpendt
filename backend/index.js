@@ -5,7 +5,7 @@ const connectDB = require("./database/connect");
 const TransactionRouter = require("./routes/Transaction.router");
 const AuthRouter = require("./routes/auth.router");
 const AuthMiddleware = require("./middleware/authentication");
-const http = require("http")
+const https = require("https")
 
 const app = express();
 
@@ -40,7 +40,7 @@ const start = async () => {
     app.listen(port, () => {
       console.log(`App listening on port ${port}`);
       setInterval(() => {
-        http
+        https
           .request(`${process.env.PROD_URL}`, (res) => {
             console.log("Server available");
           })
