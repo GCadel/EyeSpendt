@@ -2,7 +2,7 @@
 
 Keep an eye on your spendings.
 
-[Start using EyeSpendt today](https://eyespendt.onrender.com/)!
+  [Start using EyeSpendt today](https://eyespendt.netlify.app/)!
 
 ## What is this?
 
